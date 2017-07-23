@@ -1,0 +1,48 @@
+
+<html>
+	<head>
+		<title>文字居中</title>
+		<style>
+		body{ background:black}
+		#c1{background:white}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			var oimage = document.getElementById('img1')
+			var oc = document.getElementById("c1");
+			var ogc = oc.getContext('2d')
+			var c1 = new Shape(100,100,50);
+			var c2 = new Shape(200,200,50);
+
+			oc.onmousedown = function (ev) {
+				// body...
+				var ev = ev || window.event;
+				var point = {
+					x : ev.clientX - oc.offsetLeft,
+					y : ev.clientY - oc.offsetTop
+				}
+			}
+
+			function Shape () {
+				// body...
+				this.x = x;
+				this.y = y;
+				this.r = r;
+
+				ogc.arc(this.x,this.y,this.y,0,360 * Math.PI/180,false);
+
+				ogc.beginPath();
+				ogc.closePath();
+				ogc.fill();
+			}
+
+		}
+		</script>
+	</head>
+
+	<body>
+		<canvas id="c1" width="400" height="400"></canvas>
+		<img src="" id="img1"/> 
+	</body>	
+	</html>

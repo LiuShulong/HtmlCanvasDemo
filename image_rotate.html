@@ -1,0 +1,102 @@
+
+<html>
+	<head>
+		<title>图片操作</title>
+		<style>
+		body{ background:black}
+		#c1{background:white}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			var aInput = document.getElementsByTagName("input");
+			var oImg = document.getElementById("img1");
+
+			var yImg = new Image();
+
+			var iNow = 0;
+
+			yImg.onload = function () {
+				// body...
+				draw(oImg);
+			}
+
+			yImg.src = oImg.src;	
+
+			function draw (obj) {
+						// body...
+						var oc = document.createElement('canvas');
+						var ogc = oc.getContext('2d');
+						oc.width = obj.width;
+						oc.height = obj.height;
+
+						obj.parentNode.replaceChild(oc,obj);
+
+						ogc.drawImage(obj,0,0);
+
+						aInput[1].onclick = function() {
+							// body...
+
+							if (iNow == 3) {
+								iNow = 0;
+							} else {
+								iNow++;
+							}
+							toChange();
+						}
+
+						aInput[0].onclick = function() {
+							// body...
+
+							if (iNow == 0) {
+								iNow = 3;
+							} else {
+								iNow--;
+							}
+							toChange();
+						}
+
+
+						function toChange (argument) {
+							// body...
+							switch(iNow) {
+								case 1:
+								oc.width = obj.height;
+								oc.height = obj.width;
+								ogc.rotate(90 * Math.PI/180);
+								ogc.drawImage(obj,0,-obj.height);
+								break;
+								case 2:
+								oc.width = obj.width;
+								oc.height = obj.height;
+								ogc.rotate(180 * Math.PI/180);
+								ogc.drawImage(obj,-obj.width,-obj.height);
+								break;
+								case 3:
+								oc.width = obj.height;
+								oc.height = obj.width;
+								ogc.rotate(270 * Math.PI/180);
+								ogc.drawImage(obj,-obj.width,0);
+								break;
+								case 0:
+								oc.width = obj.width;
+								oc.height = obj.height;
+								ogc.rotate(0 * Math.PI/180);
+								ogc.drawImage(obj,0,0);
+								break;
+
+							}
+						}
+					}		
+		}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="<-"/>
+		<input type="button" value="->">
+		<div>
+			<img src="image.png" id="img1">
+		</div>
+		</body>
+</html>

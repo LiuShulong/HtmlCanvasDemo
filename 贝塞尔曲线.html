@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>绘制贝塞尔曲线</title>
+		<style>
+		body{ background:black}
+		#c1{background:white}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			var oC = document.getElementById('c1')
+			var ogc = oC.getContext('2d')
+			
+			ogc.moveTo(100,200);
+			ogc.arcTo(100,100,200,100,50);
+			ogc.stroke();
+		}
+		</script>
+	</head>
+
+	<body>
+	<canvas id="c1" width="400px" height="500px">
+		<span>不支持 canvas 的浏览器</span>
+	</canvas>
+	</body>
+</html>

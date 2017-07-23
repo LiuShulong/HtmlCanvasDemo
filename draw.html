@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>鼠标划线</title>
+		<style>
+		body{ background:black;}
+		#c1{background:white;}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			console.log("load")
+			var oc = document.getElementById('c1');
+			var ogc = oc.getContext('2d');
+			oc.onmousedown = function (ev) {
+				var ev = ev || window.event;
+				ogc.moveTo(ev.clientX - oc.offsetLeft,ev.clientY - oc.offsetTop);
+				document.onmousemove = function (ev) {
+					var ev = ev || window.event;
+					ogc.lineTo(ev.clientX - oc.offsetLeft,ev.clientY - oc.offsetTop);
+					ogc.stroke();
+				};
+				document.onmouseup = function () {
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+			}			
+		}
+		</script>
+	</head>
+
+	<body>
+	<canvas id="c1" width="400px" height="500px">
+		<span>不支持 canvas 的浏览器</span>
+	</canvas>
+	</body>
+</html>

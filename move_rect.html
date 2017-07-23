@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>鼠标划线</title>
+		<style>
+		body{ background:black;}
+		#c1{background:white;}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			console.log("load")
+			var oc = document.getElementById('c1');
+			var ogc = oc.getContext('2d');
+			ogc.fillRect(0,0,100,100);
+			var num = 0;
+			setInterval(function () {
+				// body...
+				num++;
+				ogc.clearRect(0,0,oc.width,oc.height);//清理画布
+				ogc.fillRect(num,num,100,100);
+			},30)			
+		}
+		</script>
+	</head>
+
+	<body>
+	<canvas id="c1" width="400px" height="500px">
+		<span>不支持 canvas 的浏览器</span>
+	</canvas>
+	</body>
+</html>

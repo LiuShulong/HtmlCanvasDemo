@@ -1,0 +1,25 @@
+
+<html>
+	<head>
+		<title>图片操作</title>
+		<style>
+		body{ background:black}
+		#c1{background:white}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			var oc = document.getElementById("c1");
+			var ogc = oc.getContext('2d')
+			ogc.font = '60px impact';
+			ogc.textBaseline = 'top';
+			ogc.fillText('大家好',0,0)
+			ogc.strokeText('大家好',0,200)
+		}
+		</script>
+	</head>
+
+	<body>
+		<canvas id="c1" width="400" height="400"></canvas>
+	</body>	
+	</html>

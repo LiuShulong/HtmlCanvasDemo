@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>绘制路径</title>
+		<style>
+		body{ background:black}
+		#c1{background:white}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			var oC = document.getElementById('c1');
+			var ogc = oC.getContext('2d');
+			ogc.beginPath();
+			ogc.moveTo(100,100);
+			ogc.lineTo(200,200);
+			ogc.lineTo(300,200);
+			ogc.closePath();
+			ogc.stroke();
+
+			//
+			ogc.beginPath();
+			ogc.moveTo(200,100);
+			ogc.lineTo(300,200);
+			ogc.lineTo(400,200);
+			ogc.closePath();
+			ogc.fill();
+			
+		}
+		</script>
+	</head>
+
+	<body>
+	<canvas id="c1" width="400px" height="500px">
+		<span>不支持 canvas 的浏览器</span>
+	</canvas>
+	</body>
+</html>

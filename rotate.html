@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>绘制贝塞尔曲线</title>
+		<style>
+		body{ background:black}
+		#c1{background:white}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			var oC = document.getElementById('c1')
+			var ogc = oC.getContext('2d')
+			
+			var num = 0;
+			var num2 = 0;
+			var value = 1;
+			ogc.translate(100,100);
+
+			setInterval(function () {
+				num++;
+				ogc.save();
+				ogc.clearRect(0,0,oC.width,oC.height);
+
+				if (num2 == 100){
+					value = -1;
+				} else if(num2 == 0) {
+					value = 1;
+				}
+
+				num2 += value;
+				ogc.scale(num2 * 1 / 50,num2*1/50);
+
+				ogc.rotate(num * Math.PI/180);
+				ogc.translate(-50,-50);
+
+				ogc.fillRect(0,0,100,100);
+				ogc.restore();
+
+			},30);
+		}
+		</script>
+	</head>
+
+	<body>
+	<canvas id="c1" width="400px" height="500px">
+		<span>不支持 canvas 的浏览器</span>
+	</canvas>
+	</body>
+</html>

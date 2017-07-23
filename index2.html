@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>绘制矩形</title>
+		<style>
+		body{ background:black}
+		#c1{background:white}
+		span{color:white;}
+		</style>
+		<script type="text/javascript">
+		window.onload = function () {
+			var oC = document.getElementById('c1')
+			var ogc = oC.getContext('2d')
+			//ogc.fillRect(50,50,100,100)//left top w h 默认填充黑色
+			ogc.strokeRect(50,50,100,100) //无填充
+		}
+		</script>
+	</head>
+
+	<body>
+	<canvas id="c1" width="400px" height="500px">
+		<span>不支持 canvas 的浏览器</span>
+	</canvas>
+	</body>
+</html>
